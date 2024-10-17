@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { Props } from '.';
 
-export const Card = styled.div<Props>`
+type PropsSemLegendaEContadorNumber = Omit<Props, 'contadorNumber' | 'legenda'>;
+
+export const Card = styled.div<PropsSemLegendaEContadorNumber>`
   padding: 8px;
   border: solid 1px ${(props) => (props.ativo ? '#1e90ff' : '#a1a1a1')};
   background-color: ${(props) => (props.ativo ? '#fff' : '#fcfcfc')};
