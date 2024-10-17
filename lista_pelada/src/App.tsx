@@ -1,9 +1,19 @@
+import { BarraLateral } from "./containers/BarraLateral"
+import { Lista } from "./containers/Lista"
+import { Container, EstiloGlobal } from "./styles"
 
 
 function App() {
 
   return (
-    <div>Olá react</div>
+    <>
+      <EstiloGlobal />
+      <Container>
+        <BarraLateral />
+        <Lista />
+      </Container>
+
+    </>
   )
 }
 
