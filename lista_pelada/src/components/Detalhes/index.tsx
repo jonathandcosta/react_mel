@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Acoes, Botao, Card, Descricao, Tag, Titulo } from "./styles";
+import { Acoes, Botao, BotaoCancelarRemover, BotaoSalvar, Card, Descricao, Tag, Titulo } from "./styles";
 
 type Props = {
   titulo: string
@@ -20,13 +20,13 @@ export const Detalhes = ({ descricao, prioridade, status, titulo }: Props) => {
       <Acoes>
         {estaEditando ? (
           <>
-            <Botao>Salvar</Botao>
-            <Botao onClick={() => setEstaEditando(false)}>Cancelar</Botao>
+            <BotaoSalvar>Salvar</BotaoSalvar>
+            <BotaoCancelarRemover onClick={() => setEstaEditando(false)}>Cancelar</BotaoCancelarRemover>
           </>
         ) : (
           <>
             <Botao onClick={() => setEstaEditando(true)}>Editar</Botao>
-            <Botao>Remover</Botao>
+            <BotaoCancelarRemover>Remover</BotaoCancelarRemover>
           </>
         )}
       </Acoes>
