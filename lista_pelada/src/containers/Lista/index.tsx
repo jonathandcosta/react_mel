@@ -3,22 +3,28 @@ import { Container } from "./styles";
 
 const situacao = [
   {
-    titulo: "Chagou 1",
-    prioridade: 'mensalista',
-    status: 'Time Amarelo',
+    titulo: "Ordem de Chegada 1",
+    prioridade: 'Mensalistas',
+    status: 'Amarelo',
     descricao: 'tudo certo'
   },
   {
-    titulo: "Chagou 2",
-    prioridade: 'diarista',
-    status: 'Time Laranja',
+    titulo: "Ordem de Chegada 2",
+    prioridade: 'Diarista',
+    status: 'Laranja',
     descricao: 'Faltou sabado passado'
   },
   {
-    titulo: "Chagou 3",
-    prioridade: 'mensalista',
-    status: 'Time Azul',
+    titulo: "Ordem de Chegada 3",
+    prioridade: 'Mensalistas',
+    status: 'Azul',
     descricao: 'Tudo certo'
+  },
+  {
+    titulo: "Ordem de Chegada 4",
+    prioridade: 'Convidado',
+    status: 'Laranja',
+    descricao: 'Convidado por Freire'
   },
 ]
 

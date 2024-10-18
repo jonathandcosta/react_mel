@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
+export const Logo = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+  margin-bottom: 32px;
+
+  > img {
+    width: 250px;
+    border-radius: 80px;
+  }
+`;
+
 export const Aside = styled.aside`
   background-color: #eee;
   height: 100vh;

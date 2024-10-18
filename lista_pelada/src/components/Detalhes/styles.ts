@@ -1,6 +1,23 @@
 import styled from 'styled-components';
 import variaveis from '../../styles/variaveis';
 
+type TagProps = {
+  prioridade?: string;
+  status?: string;
+};
+
+function retornaCorFundo(props: TagProps): string {
+  if ('prioridade' in props) {
+    if (props.prioridade === 'Mensalistas') return variaveis.verde;
+    if (props.prioridade === 'Diarista') return variaveis.diarista;
+  } else if ('status' in props) {
+    if (props.status === 'Azul') return variaveis.azul;
+    if (props.status === 'Amarelo') return variaveis.amarelo;
+    if (props.status === 'Laranja') return variaveis.laranja;
+  }
+  return '#ccc';
+}
+
 export const Card = styled.div`
   background-color: #fcfcfc;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -15,12 +32,12 @@ export const Titulo = styled.h3`
   margin-bottom: 16px;
 `;
 
-export const Tag = styled.span`
+export const Tag = styled.span<TagProps>`
   padding: 4px 8px;
   font-size: 10px;
   font-weight: bold;
   color: #fff;
-  background-color: #e1a32a;
+  background-color: ${(props) => retornaCorFundo(props)};
   border-radius: 8px;
   margin-right: 16px;
   display: inline-block;

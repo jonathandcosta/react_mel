@@ -14,8 +14,8 @@ export const Detalhes = ({ descricao, prioridade, status, titulo }: Props) => {
   return (
     <Card>
       <Titulo>{titulo}</Titulo>
-      <Tag>{prioridade}</Tag>
-      <Tag>{status}</Tag>
+      <Tag prioridade={prioridade}>{prioridade}</Tag>
+      <Tag status={status}>{status}</Tag>
       <Descricao value={descricao} />
       <Acoes>
         {estaEditando ? (
