@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { remmover } from "../../store/reducers/detalhes";
+
 import { Acoes, Botao, BotaoCancelarRemover, BotaoSalvar, Card, Descricao, Tag, Titulo } from "./styles";
 
 import DetalhesClass from '../../models/Detalhes'
@@ -7,6 +10,7 @@ type Props = DetalhesClass
 
 
 export const Detalhes = ({ descricao, prioridade, status, titulo, id }: Props) => {
+  const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
 
   return (
@@ -24,7 +28,7 @@ export const Detalhes = ({ descricao, prioridade, status, titulo, id }: Props) =
         ) : (
           <>
             <Botao onClick={() => setEstaEditando(true)}>Editar</Botao>
-            <BotaoCancelarRemover>Remover</BotaoCancelarRemover>
+            <BotaoCancelarRemover onClick={() => dispatch(remmover(id))}>Remover</BotaoCancelarRemover>
           </>
         )}
       </Acoes>
