@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Acoes, Botao, BotaoCancelarRemover, BotaoSalvar, Card, Descricao, Tag, Titulo } from "./styles";
 
+import * as enums from '../../utils/enums/Detalhes';
+
+
 type Props = {
   titulo: string
-  prioridade: string
-  status: string
+  prioridade: enums.Prioridade
+  status: enums.Status
   descricao: string
 }
 
@@ -14,8 +17,8 @@ export const Detalhes = ({ descricao, prioridade, status, titulo }: Props) => {
   return (
     <Card>
       <Titulo>{titulo}</Titulo>
-      <Tag prioridade={prioridade}>{prioridade}</Tag>
-      <Tag status={status}>{status}</Tag>
+      <Tag parametro="prioridade" prioridade={prioridade}>{prioridade}</Tag>
+      <Tag parametro="status" status={status}>{status}</Tag>
       <Descricao value={descricao} />
       <Acoes>
         {estaEditando ? (

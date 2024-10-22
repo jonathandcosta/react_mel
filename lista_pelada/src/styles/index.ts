@@ -17,6 +17,7 @@ export const EstiloGlobal = createGlobalStyle`
 export const Container = styled.div`
   display: grid;
   grid-template-columns: 320px auto;
+  background-color: #d4d4d4;
 
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;

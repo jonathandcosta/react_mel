@@ -1,19 +1,26 @@
 import styled from 'styled-components';
 import variaveis from '../../styles/variaveis';
 
+import * as enums from '../../utils/enums/Detalhes';
+
 type TagProps = {
-  prioridade?: string;
-  status?: string;
+  prioridade?: enums.Prioridade;
+  status?: enums.Status;
+  parametro: 'status' | 'prioridade';
 };
 
 function retornaCorFundo(props: TagProps): string {
-  if ('prioridade' in props) {
-    if (props.prioridade === 'Mensalistas') return variaveis.verde;
-    if (props.prioridade === 'Diarista') return variaveis.diarista;
-  } else if ('status' in props) {
-    if (props.status === 'Azul') return variaveis.azul;
-    if (props.status === 'Amarelo') return variaveis.amarelo;
-    if (props.status === 'Laranja') return variaveis.laranja;
+  if (props.parametro === 'prioridade') {
+    if (props.prioridade === enums.Prioridade.MENSALISTAS)
+      return variaveis.verde;
+    if (props.prioridade === enums.Prioridade.DIARISTA)
+      return variaveis.diarista;
+    if (props.prioridade === enums.Prioridade.CONVIDADO)
+      return variaveis.convidado;
+  } else {
+    if (props.status === enums.Status.AZUL) return variaveis.azul;
+    if (props.status === enums.Status.AMARELO) return variaveis.amarelo;
+    if (props.status === enums.Status.LARANJA) return variaveis.laranja;
   }
   return '#ccc';
 }
@@ -22,6 +29,7 @@ export const Card = styled.div`
   background-color: #fcfcfc;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 16px;
+  margin-top: 32px;
   margin-bottom: 32px;
   border-radius: 16px;
 `;
