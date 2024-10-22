@@ -1,17 +1,12 @@
 import { useState } from "react";
 import { Acoes, Botao, BotaoCancelarRemover, BotaoSalvar, Card, Descricao, Tag, Titulo } from "./styles";
 
-import * as enums from '../../utils/enums/Detalhes';
+import DetalhesClass from '../../models/Detalhes'
+
+type Props = DetalhesClass
 
 
-type Props = {
-  titulo: string
-  prioridade: enums.Prioridade
-  status: enums.Status
-  descricao: string
-}
-
-export const Detalhes = ({ descricao, prioridade, status, titulo }: Props) => {
+export const Detalhes = ({ descricao, prioridade, status, titulo, id }: Props) => {
   const [estaEditando, setEstaEditando] = useState(false)
 
   return (
