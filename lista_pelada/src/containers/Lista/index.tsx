@@ -1,29 +1,30 @@
 import { Detalhes } from "../../components/Detalhes";
 import { Container } from "./styles";
+import * as enums from '../../utils/enums/Detalhes';
 
 const situacao = [
   {
     titulo: "Ordem de Chegada 1",
-    prioridade: 'Mensalistas',
-    status: 'Amarelo',
+    prioridade: enums.Prioridade.MENSALISTAS,
+    status: enums.Status.AMARELO,
     descricao: 'tudo certo'
   },
   {
     titulo: "Ordem de Chegada 2",
-    prioridade: 'Diarista',
-    status: 'Laranja',
+    prioridade: enums.Prioridade.DIARISTA,
+    status: enums.Status.LARANJA,
     descricao: 'Faltou sabado passado'
   },
   {
     titulo: "Ordem de Chegada 3",
-    prioridade: 'Mensalistas',
-    status: 'Azul',
+    prioridade: enums.Prioridade.MENSALISTAS,
+    status: enums.Status.AZUL,
     descricao: 'Tudo certo'
   },
   {
     titulo: "Ordem de Chegada 4",
-    prioridade: 'Convidado',
-    status: 'Laranja',
+    prioridade: enums.Prioridade.CONVIDADO,
+    status: enums.Status.LARANJA,
     descricao: 'Convidado por Freire'
   },
 ]
