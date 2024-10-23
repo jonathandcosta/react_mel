@@ -49,9 +49,18 @@ const detalhesSlice = createSlice({
         (detalhe) => detalhe.id !== action.payload,
       );
     },
+    editar: (state, action: PayloadAction<Detalhe>) => {
+      const indexDetalhe = state.situacao.findIndex(
+        (s) => s.id === action.payload.id,
+      );
+
+      if (indexDetalhe >= 0) {
+        state.situacao[indexDetalhe] = action.payload;
+      }
+    },
   },
 });
 
-export const { remmover } = detalhesSlice.actions;
+export const { remmover, editar } = detalhesSlice.actions;
 
 export default detalhesSlice.reducer;

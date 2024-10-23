@@ -60,6 +60,7 @@ export const Descricao = styled.textarea`
   width: 100%;
   margin-top: 16px;
   margin-bottom: 16px;
+  padding: 10px;
   resize: none;
   border: solid 1px #eee;
   border-radius: 8px;
