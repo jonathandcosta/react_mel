@@ -6,17 +6,38 @@ import { RootReducer } from "../../store";
 
 export const Lista = () => {
   const { situacao } = useSelector((state: RootReducer) => state.detalhes)
-  const { termo } = useSelector((state: RootReducer) => state.filtro)
+  const { termo, criterio, valor } = useSelector((state: RootReducer) => state.filtro)
 
   const filtraLista = () => {
-    return situacao.filter(
-      item => item.titulo.toLowerCase().search(termo.toLowerCase()) >= 0)
+    let tarefasFiltradas = situacao
+
+    if (termo !== undefined) {
+      tarefasFiltradas = tarefasFiltradas.filter(
+        item => item.titulo.toLowerCase().search(termo.toLowerCase()) >= 0
+      )
+      if (criterio === 'prioridade') {
+        tarefasFiltradas = tarefasFiltradas.filter(
+          item => item.prioridade === valor
+        )
+      } else if (criterio === 'status') {
+        tarefasFiltradas = tarefasFiltradas.filter(
+          item => item.status === valor
+        )
+      }
+      return tarefasFiltradas
+    } else {
+      return situacao
+    }
   }
 
 
   return (
     <Container>
-      <p>Total de peladeiros: 2 Mensalistas e 5 Diaristas, Pequisou por {termo}</p>
+      <p>Total de peladeiros: 2 Mensalistas e 5 Diaristas</p>
+      <p>Pequisou por; {termo}</p>
+      <p>{criterio}</p>
+      <p>{valor}</p>
+
       <ul>
         {filtraLista().map((s) => (
           <li key={s.titulo}>

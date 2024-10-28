@@ -1,9 +1,10 @@
 import { FiltroCard } from "../../components/FiltroCard";
-import { Aside, Busca, Filtros, Logo } from "./styles";
 import logo from '../../assets/img/mel_logo 1.jpg'
 import { useDispatch, useSelector } from "react-redux";
 import { RootReducer } from "../../store";
 import { alteraTermo } from "../../store/reducers/filtro";
+import { Aside, Busca, Filtros, Logo } from "./styles";
+import * as enums from '../../utils/enums/Detalhes'
 
 export const BarraLateral = () => {
 
@@ -23,12 +24,35 @@ export const BarraLateral = () => {
           onChange={(evento) => dispatch(alteraTermo(evento.target.value))}
         />
         <Filtros>
-          <FiltroCard legenda='mensalistas' contadorNumber={1} />
-          <FiltroCard legenda='diaristas' contadorNumber={2} />
-          <FiltroCard legenda='amarelo' contadorNumber={4} />
-          <FiltroCard legenda='azul' contadorNumber={5} />
-          <FiltroCard legenda='laranja' contadorNumber={5} />
-          <FiltroCard legenda='geral' contadorNumber={10} ativo />
+          <FiltroCard
+            valor={enums.Prioridade.MENSALISTAS}
+            criterio='prioridade'
+            legenda='mensalistas'
+            contadorNumber={1} />
+          <FiltroCard
+            valor={enums.Prioridade.DIARISTA}
+            criterio='prioridade'
+            legenda='diaristas'
+            contadorNumber={2} />
+          <FiltroCard
+            valor={enums.Status.AMARELO}
+            criterio='status'
+            legenda='amarelo'
+            contadorNumber={4} />
+          <FiltroCard
+            valor={enums.Status.AZUL}
+            criterio='status'
+            legenda='azul'
+            contadorNumber={5} />
+          <FiltroCard
+            valor={enums.Status.LARANJA}
+            criterio='status'
+            legenda='laranja'
+            contadorNumber={5} />
+          <FiltroCard
+            criterio='todas'
+            legenda='todas'
+            contadorNumber={10} />
         </Filtros>
       </div>
     </Aside>
