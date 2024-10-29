@@ -1,3 +1,4 @@
+import BotaoAdd from "../../components/BotaoAdd"
 import { BarraLateral } from "../../containers/BarraLateral"
 import { Lista } from "../../containers/Lista"
 
@@ -6,6 +7,7 @@ const Home = () => {
     <>
       <BarraLateral />
       <Lista />
+      <BotaoAdd />
     </>
   )
 }
