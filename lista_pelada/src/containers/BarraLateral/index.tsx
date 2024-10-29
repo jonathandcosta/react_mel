@@ -28,31 +28,36 @@ export const BarraLateral = () => {
             valor={enums.Prioridade.MENSALISTAS}
             criterio='prioridade'
             legenda='mensalistas'
-            contadorNumber={1} />
+          />
           <FiltroCard
             valor={enums.Prioridade.DIARISTA}
             criterio='prioridade'
             legenda='diaristas'
-            contadorNumber={2} />
+          />
           <FiltroCard
             valor={enums.Status.AMARELO}
             criterio='status'
-            legenda='amarelo'
-            contadorNumber={4} />
+            legenda='time amarelo'
+          />
           <FiltroCard
             valor={enums.Status.AZUL}
             criterio='status'
-            legenda='azul'
-            contadorNumber={5} />
+            legenda='time azul'
+          />
           <FiltroCard
             valor={enums.Status.LARANJA}
             criterio='status'
-            legenda='laranja'
-            contadorNumber={5} />
+            legenda='time laranja'
+          />
+          <FiltroCard
+            valor={enums.Status.LARANJA}
+            criterio='prioridade'
+            legenda='convidado'
+          />
           <FiltroCard
             criterio='todas'
-            legenda='todas'
-            contadorNumber={10} />
+            legenda='jogadores total'
+          />
         </Filtros>
       </div>
     </Aside>

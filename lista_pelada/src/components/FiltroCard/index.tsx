@@ -5,15 +5,14 @@ import * as enums from '../../utils/enums/Detalhes'
 import { RootReducer } from "../../store";
 
 export type Props = {
-  contadorNumber: number
   legenda: string
   criterio: "prioridade" | "status" | "todas"
   valor?: enums.Prioridade | enums.Status
 }
 
-export const FiltroCard = ({ contadorNumber, legenda, criterio, valor }: Props) => {
+export const FiltroCard = ({ legenda, criterio, valor }: Props) => {
   const dispatch = useDispatch()
-  const { filtro } = useSelector((state: RootReducer) => state)
+  const { filtro, detalhes } = useSelector((state: RootReducer) => state)
 
   const verificaEstaAtivo = () => {
     const mesmoCriterio = filtro.criterio === criterio
@@ -21,10 +20,18 @@ export const FiltroCard = ({ contadorNumber, legenda, criterio, valor }: Props) 
 
     return mesmoCriterio && mesmoValor
   }
-
   const ativo = verificaEstaAtivo()
 
-
+  const contarNalista = () => {
+    if (criterio === 'todas') return detalhes.situacao.length
+    if (criterio === 'prioridade') {
+      return detalhes.situacao.filter((item) => item.prioridade === valor).length
+    }
+    if (criterio === 'status') {
+      return detalhes.situacao.filter((item) => item.status === valor).length
+    }
+  }
+  const contador = contarNalista()
 
   const filtrar = () => {
     dispatch(alteraFiltro({
@@ -35,7 +42,7 @@ export const FiltroCard = ({ contadorNumber, legenda, criterio, valor }: Props) 
 
   return (
     <Card ativo={ativo} onClick={filtrar}>
-      <Number>{contadorNumber}</Number>
+      <Number>{contador}</Number>
       <Label>{legenda}</Label>
     </Card>
   )

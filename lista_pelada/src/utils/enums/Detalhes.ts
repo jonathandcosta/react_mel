@@ -5,7 +5,7 @@ export enum Prioridade {
 }
 
 export enum Status {
-  AZUL = 'Azul',
-  AMARELO = 'Amarelo',
-  LARANJA = 'Laranja',
+  AZUL = 'Time Azul',
+  AMARELO = 'Time Amarelo',
+  LARANJA = 'Time Laranja',
 }
