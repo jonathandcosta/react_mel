@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { remmover, editar } from "../../store/reducers/detalhes";
 
-import { Acoes, Botao, BotaoCancelarRemover, BotaoSalvar, Card, Descricao, Tag, Titulo } from "./styles";
+import { Acoes, Botao, BotaoCancelarRemover, Card, Descricao, Tag, Titulo } from "./styles";
+import { BotaoSalvar } from "../../styles";
 
 import DetalhesClass from '../../models/Detalhes'
 

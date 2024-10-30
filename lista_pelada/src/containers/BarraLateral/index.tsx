@@ -3,7 +3,8 @@ import logo from '../../assets/img/mel_logo 1.jpg'
 import { useDispatch, useSelector } from "react-redux";
 import { RootReducer } from "../../store";
 import { alteraTermo } from "../../store/reducers/filtro";
-import { Aside, Busca, Filtros, Logo } from "./styles";
+import { Aside, Filtros, Logo } from "./styles";
+import { Input } from "../../styles";
 import * as enums from '../../utils/enums/Detalhes'
 
 export const BarraLateral = () => {
@@ -17,7 +18,7 @@ export const BarraLateral = () => {
         <img src={logo} alt="" />
       </Logo>
       <div>
-        <Busca
+        <Input
           type="text"
           placeholder="Procurar"
           value={termo}

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Detalhes } from "../../components/Detalhes";
-import { Container, Resultado } from "./styles";
+import { MainContainer, Titulo } from "../../styles";
 
 import { RootReducer } from "../../store";
 
@@ -44,9 +44,9 @@ export const Lista = () => {
   const mensagem = exibeResultadoFiltragem(listas.length)
 
   return (
-    <Container>
-      <Resultado>Pequisa específica por: {termo}</Resultado>
-      <Resultado>{mensagem}</Resultado>
+    <MainContainer>
+      <Titulo>Pequisa específica por: {termo}</Titulo>
+      <Titulo>{mensagem}</Titulo>
       <ul>
         {listas.map((s) => (
           <li key={s.titulo}>
@@ -60,6 +60,6 @@ export const Lista = () => {
         ))}
 
       </ul>
-    </Container>
+    </MainContainer>
   )
 }
